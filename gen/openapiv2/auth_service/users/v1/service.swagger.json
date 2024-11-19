@@ -1,0 +1,177 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "auth_service/users/v1/service.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "UsersService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1CreateUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/v1User"
+        }
+      }
+    },
+    "v1DeleteUserResponse": {
+      "type": "object"
+    },
+    "v1GetAllUsersResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1User"
+          }
+        }
+      }
+    },
+    "v1GetUserByIDResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/v1User"
+        }
+      }
+    },
+    "v1IntFieldFilter": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "$ref": "#/definitions/v1IntFieldFilterOperator"
+        },
+        "val": {
+          "type": "string"
+        }
+      },
+      "title": "Filter for int values, example: ?age.op=gt\u0026age.val=18"
+    },
+    "v1IntFieldFilterOperator": {
+      "type": "string",
+      "enum": [
+        "OPERATOR_UNSPECIFIED",
+        "OPERATOR_EQ",
+        "OPERATOR_NEQ",
+        "OPERATOR_LT",
+        "OPERATOR_LTE",
+        "OPERATOR_GT",
+        "OPERATOR_GTE"
+      ],
+      "default": "OPERATOR_UNSPECIFIED"
+    },
+    "v1Pagination": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "offset": {
+          "type": "string",
+          "format": "uint64"
+        }
+      }
+    },
+    "v1Sort": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string"
+        }
+      },
+      "title": "Sorting array"
+    },
+    "v1StringFieldFilter": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "$ref": "#/definitions/v1StringFieldFilterOperator"
+        },
+        "val": {
+          "type": "string"
+        }
+      },
+      "title": "Filter for string values, example: ?email.op=eq\u0026email.val=me@example.com"
+    },
+    "v1StringFieldFilterOperator": {
+      "type": "string",
+      "enum": [
+        "OPERATOR_UNSPECIFIED",
+        "OPERATOR_EQ",
+        "OPERATOR_NEQ",
+        "OPERATOR_LIKE"
+      ],
+      "default": "OPERATOR_UNSPECIFIED"
+    },
+    "v1UpdateUserResponse": {
+      "type": "object"
+    },
+    "v1User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}
