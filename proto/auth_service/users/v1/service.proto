@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package auth_service.users.v1;
+
+option go_package = "gitlab.com/programmingiswonderful/saidoff-tt-contracts/gen/go/auth_service/users/v1;pb_auth_service_users";
+
+import "auth_service/users/v1/model.proto";
+
+service UsersService {
+  rpc GetAllUsers(GetAllUsersRequest) returns (GetAllUsersResponse) {}
+  rpc GetUserByID(GetUserByIDRequest) returns (GetUserByIDResponse) {}
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
+  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
+}
